@@ -6,12 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  font-family: 'Inter', sans-serif;
-} */
-
-@layer base {
-  body{
+@layer components {
+  body {
     @apply font-inter;
+  }
+  .btn {
+    @apply w-full bg-[#121212] text-white rounded-full py-3 hover:bg-black/80;
+  }
+
+  .input {
+    @apply w-full py-4 bg-gray-100 focus:bg-gray-50 px-2 pl-5 focus:outline-none mt-3 rounded-full;
   }
 }
