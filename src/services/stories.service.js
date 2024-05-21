@@ -5,17 +5,27 @@ export const fetchStories = async page => {
   return response.data
 }
 
-export const createStory = async values => {
+export const createNewStory = async values => {
   const response = await api.post('/stories', values)
   return response.data
 }
 
-export const fetchSingleStory = async (id) => {
+export const fetchSingleStory = async id => {
   const response = await api.get(`/stories/${id}`)
   return response.data
 }
 
-// export const fetchMyStories = async () => {
-//   const response = await api.get(`/stories/me`)
-//   return response.data
-// }
+export const fetchMyStories = async () => {
+  const response = await api.get('/stories/me')
+  return response.data
+}
+
+export const editStory = async (id, values) => {
+  const response = await api.put(`/stories/${id}`, values)
+  return response.data
+}
+
+export const deleteStory = async id => {
+  const response = await api.delete(`/stories/${id}`)
+  return response.data
+}

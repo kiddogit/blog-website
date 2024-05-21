@@ -29,7 +29,6 @@ const NewStory = () => {
 
   const handleTitleKeyDown = e => {
     if(e.key === 'Enter'){
-      // publishNewStory()
       e.preventDefault()
     }
   }
@@ -40,21 +39,25 @@ const NewStory = () => {
 
   const mutation = useMutation({
     mutationKey: ['create-story'],
-    mutationFn:values => createNewStroy(values),
+    mutationFn:values => createNewStory(values),
     onSuccess: () => {
       navigate('/')
     },
-    onError:(error) => {
+    onError: (error) => {
       toast.error(error.response.data.message)
     },
   })
 
   const handlePublishStory = async () => {
-    await mutation.mutateAsync({
-      title,
-      content,
-      picture: imageUrl,
-    })
+    try {
+      await mutation.mutateAsync({
+        title,
+        content,
+        picture: imageUrl,
+      })
+    } catch (error) {
+      console.log('Error publishing story:', error)
+    }
   }
 
   return (
