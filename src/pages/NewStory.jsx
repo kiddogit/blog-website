@@ -56,7 +56,7 @@ const NewStory = () => {
         picture: imageUrl,
       })
     } catch (error) {
-      console.log('Error publishing story:', error)
+      // console.log('Error publishing story:', error)
     }
   }
 
