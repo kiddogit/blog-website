@@ -2,7 +2,6 @@ import { Link, useNavigate, createSearchParams } from "react-router-dom"
 import { ScrollText, Search } from 'lucide-react'
 import mediumIcon from '@/assets/medium.svg'
 import Dropdown from './Dropdown'
-import { useState } from "react"
 
 const Navbar = () => {
   const navigate = useNavigate()
