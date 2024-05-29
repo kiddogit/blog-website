@@ -9,7 +9,7 @@ const StoryList = ({ story }) => {
           {/* {moment(story?.createdAt).startOf('second').fromNow()} */}
 
           {/* https://momentjs.com/ */}
-          {moment(story?.createdAt).startOf('second').fromNow()}
+          {moment(story.createdAt).startOf('seconds').fromNow()}
         </p>
       </div>
       <div className='flex justify-between'>
