@@ -23,7 +23,7 @@ const HomePage = () => {
   }),
 })
 
-console.log('in view', inView);
+// console.log('in view', inView);
 
 useEffect(() => {
   if(hasNextPage){
