@@ -20,7 +20,7 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<HomePage />} />
         <Route path="/stories/:storyId" element={<SingleStoryPage />} />
-        <Route path="/me/drafts" element={<MePage />} />
+        <Route path="/me" element={<MePage />} />
       </Route>
     </Routes>
 
