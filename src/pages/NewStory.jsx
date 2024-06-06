@@ -4,10 +4,11 @@ import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { createNewStory } from '@/services/stories.service'
 
 const NewStory = () => {
   const navigate = useNavigate()
-  const [imageUrl, setImageUrl] = useState('https://cdn.pixabay.com/photo/2015/10/16/01/09/street-990315_1280.jpg')
+  const [imageUrl, setImageUrl] = useState('https://img.freepik.com/free-psd/empty-floral-card-frame-design_53876-76400.jpg?t=st=1717308227~exp=1717311827~hmac=e229586ecfcf450305c45c40f50a62ee24a0b6044bae7933daaa237ee69da7bc&w=740')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
@@ -37,27 +38,34 @@ const NewStory = () => {
     setContent(e.target.value)
   }
 
+  // const mutation = useMutation({
+  //   mutationKey: ['create-story'],
+  //   mutationFn:values => createNewStory(values),
+  //   onSuccess: () => {
+  //     navigate('/')
+  //   },
+  //   onError: (error) => {
+  //     toast.error(error.response)
+  //   },
+  // })
+
   const mutation = useMutation({
     mutationKey: ['create-story'],
     mutationFn:values => createNewStory(values),
-    onSuccess: () => {
+    onSuccess:() => {
       navigate('/')
     },
-    onError: (error) => {
+    onError:() => {
       toast.error(error.response.data.message)
     },
   })
 
   const handlePublishStory = async () => {
-    try {
       await mutation.mutateAsync({
         title,
         content,
         picture: imageUrl,
       })
-    } catch (error) {
-      // console.log('Error publishing story:', error)
-    }
   }
 
   return (
@@ -88,7 +96,7 @@ const NewStory = () => {
           <input
             id='banner'
             type='file'
-            accept='.png .jpg .jpeg'
+            accept='.png, .jpg, .jpeg'
             hidden
             onChange={handleBannerChange}
           />
