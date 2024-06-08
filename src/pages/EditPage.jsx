@@ -1,5 +1,5 @@
 import mediumIcon from '@/assets/medium.svg'
-import { fetchSingleStory } from '@/services/stories.service'
+import { editStory, fetchSingleStory } from '@/services/stories.service'
 import { useMutation } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'

@@ -38,17 +38,6 @@ const NewStory = () => {
     setContent(e.target.value)
   }
 
-  // const mutation = useMutation({
-  //   mutationKey: ['create-story'],
-  //   mutationFn:values => createNewStory(values),
-  //   onSuccess: () => {
-  //     navigate('/')
-  //   },
-  //   onError: (error) => {
-  //     toast.error(error.response)
-  //   },
-  // })
-
   const mutation = useMutation({
     mutationKey: ['create-story'],
     mutationFn:values => createNewStory(values),
