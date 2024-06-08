@@ -9,7 +9,9 @@ const SingleStoryPage = () => {
     queryFn: () => fetchSingleStory(params.storyId)
   })
 
-  return <div>{isLoading ? <div>Loading</div> : <div>{JSON.stringify(data)}</div>}</div>
+  return (
+    <div>{isLoading ? <div>Loading</div> : <div>{JSON.stringify(data)}</div>}</div>
+  )
 }
 
 export default SingleStoryPage

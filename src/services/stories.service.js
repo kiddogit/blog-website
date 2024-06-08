@@ -21,7 +21,7 @@ export const fetchMyStories = async () => {
 }
 
 export const editStory = async (id, values) => {
-  const response = await api.put(`/stories/${id}`, values)
+  const response = await api.put(`/stories/${id}`)
   return response.data
 }
 
