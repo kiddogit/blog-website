@@ -33,8 +33,8 @@ const MePage = () => {
         <h2>{story.title}</h2>
         <div className="space-x-3">
           <button 
-          className="py-3 px-2 bg-[#22c55e]"
-          onClick={() => navigate(`edit/${story.id}`)}
+          className="py-3 px-2 bg-green-500"
+          onClick={() => navigate(`/edit/${story.id}`)}
           >
             Edit
           </button>
