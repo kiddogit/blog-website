@@ -18,7 +18,6 @@ const EditPage = () => {
     try {
       setIsLoading(true)
       const response = await fetchSingleStory(params.storyId)
-      console.log(response)
       setTitle(response.title)
       setContent(response.content)
       setImageUrl(response.imageUrl)
@@ -44,7 +43,7 @@ const EditPage = () => {
   }
 
   const handleTitleKeyDown = e => {
-    if (e.code === 'Enter') {
+    if (e.key === 'Enter') {
       e.preventDefault()
     }
   }
