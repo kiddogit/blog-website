@@ -14,24 +14,11 @@ const EditPage = () => {
   const [content, setContent] = useState('')
   const [imageUrl, setImageUrl] = useState('https://cdn.pixabay.com/photo/2015/10/16/01/09/street-990315_1280.jpg')
 
-  // const fetchStory = async () => {
-  //   try {
-  //     setIsLoading(true)
-  //     const response = await fetchSingleStory(params.storyId)
-  //     console.log(response)
-  //     setTitle(response.title)
-  //     setImageUrl(response.imageUrl)
-  //     setContent(response.content)
-  //     setIsLoading(false)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
   const fetchStory = async () => {
     try {
       setIsLoading(true)
       const response = await fetchSingleStory(params.storyId)
+      console.log(response)
       setTitle(response.title)
       setContent(response.content)
       setImageUrl(response.imageUrl)
