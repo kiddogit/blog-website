@@ -8,7 +8,7 @@ const MePage = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
-  const {data, isLoading} = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['me'],
     queryFn: () => fetchMyStories(),
   })
@@ -17,39 +17,39 @@ const MePage = () => {
     const response = await deleteStory(id)
 
     toast.success(response.message)
-    queryClient.invalidateQueries({ queryKey: ['stories']})
+    queryClient.invalidateQueries({ queryKey: ['stories'] })
   }
 
   return (
-    <div className="flex items-center flex-col w-full justify-center">
-    {isLoading ? (
-      <ClipLoader color='#121212' />
-    ) : (
-      <div className="space-y-5">
-      {data.map(story => (
-        <div
-        key={story.id}
-        className="space-y-5 flex items-center w-[200px] justify-between">
-        <h2>{story.title}</h2>
-        <div className="space-x-3">
-          <button 
-          className="py-3 px-2 mx-3 my-4 rounded-md float-right bg-green-500"
-          onClick={() => navigate(`/edit/${story.id}`)}
-          >
-            Edit
-          </button>
-          <button 
-          onClick={() => handleDeleteStory(story.id)}
-          className="py-3 px-2 mx-3 rounded-md float-right bg-red-500"
-          >
-            Delete
-          </button>
+    <div className="flex flex-col items-center w-full py-10 bg-gray-100 min-h-screen">
+      {isLoading ? (
+        <ClipLoader color='#121212' />
+      ) : (
+        <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-md space-y-6">
+          {data.map(story => (
+            <div
+              key={story.id}
+              className="flex items-center justify-between border-b border-gray-200 pb-4"
+            >
+              <h2 className="text-xl font-semibold text-gray-800">{story.title}</h2>
+              <div className="flex space-x-3">
+                <button
+                  className="py-2 px-4 rounded-md bg-green-500 text-white hover:bg-green-600 transition"
+                  onClick={() => navigate(`/edit/${story.id}`)}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteStory(story.id)}
+                  className="py-2 px-4 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-        </div>
-      ))}
-      </div>
-    )}
-     
+      )}
     </div>
   )
 }
